@@ -14,6 +14,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -64,5 +65,45 @@ h2 {
 }
 
 .login-form button:hover {
+    background-color: #357ab8;
+}
+
+/*Estilos para el registro de tareas*/
+.task-register-container {
+    background: #ffffff;
+    border-radius: 0.8rem;
+    padding: 1.2rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1);
+    width: 20rem;
+    margin-bottom: 1.2rem;
+}
+
+.task-form label {
+    display: block;
+    margin-top: 0.8rem;
+    color: #4a90e2;
+}
+
+.task-form input,
+.task-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 0.01rem solid #ccc;
+    border-radius: 0.4rem;
+}
+
+.task-form button {
+    margin-top: 1.2rem;
+    width: 100%;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+.task-form button:hover {
     background-color: #357ab8;
 }
