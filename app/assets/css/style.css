@@ -1,0 +1,67 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
+    background: url("../img/fondo.jpg") no-repeat center center fixed;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+h2 {
+    color: #4a90e2;
+}
+
+/*Estilos para el formulario de inicio de sesión*/
+.login-container {
+    background: #ffffff;
+    border-radius: 0.9rem;
+    padding: 1.2rem;
+    box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.1);
+    width: 20rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form label {
+    display: block;
+    margin-top: 0.8rem;
+    color: #4a90e2;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    border: 0.01rem solid #ccc;
+    border-radius: 0.4rem;
+}
+
+.login-form button {
+    width: 100%;
+    background-color: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    cursor: pointer;
+    margin-top: 1.2rem;
+}
+
+.login-form button:hover {
+    background-color: #357ab8;
+}
