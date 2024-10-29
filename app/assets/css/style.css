@@ -145,6 +145,13 @@ ul li {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+ul li:hover {
+    transform: translateY(-0.2rem);
+    box-shadow: 0 0.4rem 0.6rem rgba(0, 0, 0, 0.1);
 }
 
 .task-info {
@@ -155,6 +162,7 @@ ul li {
 .task-title {
     font-weight: bold;
     color: #333;
+    margin-bottom: 0.3rem;
 }
 
 .task-description,
@@ -173,9 +181,23 @@ ul li {
 .task-check label {
     margin-left: 0.3rem;
     color: #4a90e2;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.task-check input[type="checkbox"]:checked+label {
+    background-color: #28a745;
+    color: #fff;
+    border-radius: 10%;
 }
 
 .task-check input[type="checkbox"] {
     width: 1rem;
     height: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.task-check input[type="checkbox"]:checked {
+    background-color: #4a90e2;
+    transform: scale(1.2);
 }
