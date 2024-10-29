@@ -13,15 +13,21 @@
     <div class="task-register-container">
         <h2>Registrar Nueva Tareas</h2>
         <form class="task-form">
-            <label for="task-title">Titulo</label>
-            <input type="text" id="task-title" name="task-title" required placeholder="Titulo de la tarea">
+            <div>
+                <label for="task-title">Titulo</label>
+                <input type="text" id="task-title" name="task-title" required placeholder="Titulo de la tarea">
+            </div>
             <label for="task-description">Descripcion</label>
             <textarea id="task-description" name="task-description" required
                 placeholder="Descripcion de la tarea"></textarea>
-            <label for="task-date">Fecha</label>
-            <input type="date" id="task-date" name="task-date" required>
-            <label for="task-time">Hora</label>
-            <input type="time" name="task-time" id="task-time" required>
+            <div>
+                <label for="task-date">Fecha</label>
+                <input type="date" id="task-date" name="task-date" required>
+            </div>
+            <div>
+                <label for="task-time">Hora</label>
+                <input type="time" name="task-time" id="task-time" required>
+            </div>
             <button type="submit">Añadir Tarea</button>
         </form>
     </div>
@@ -37,7 +43,6 @@
                     <span class="task-description">De metodologia de desarrollo de software</span>
                     <span class="task-date">2025-01-25</span>
                     <span class="task-time">14:30 pm</span>
-
                 </div>
                 <div class="task-check">
                     <input type="checkbox" name="task-done" id="task-done">
