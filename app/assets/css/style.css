@@ -78,6 +78,19 @@ h2 {
     margin-bottom: 1.2rem;
 }
 
+.form-group-task {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.item-task-1 {
+    width: 50%;
+}
+
 .task-form label {
     display: block;
     margin-top: 0.8rem;
