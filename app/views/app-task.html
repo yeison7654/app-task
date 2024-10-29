@@ -23,31 +23,38 @@
             <i class="fas fa-sign-out-alt"></i>
         </button>
     </div>
-    <!--Inicio de registro de tareas-->
-    <div class="task-register-container">
-        <h2>Registrar Nueva Tareas</h2>
-        <form class="task-form">
-            <div class="form-group-task">
-                <div class="item-task-1">
-                    <label for="task-title">Titulo</label>
-                    <input type="text" id="task-title" name="task-title" required placeholder="Titulo de la tarea">
-                </div>
-                <div>
-                    <label for="task-date">Fecha</label>
-                    <input type="date" id="task-date" name="task-date" required>
-                </div>
-                <div>
-                    <label for="task-time">Hora</label>
-                    <input type="time" name="task-time" id="task-time" required>
-                </div>
+    <!--Inicio modal-->
+    <div class="modal">
+        <!--Inicio de registro de tareas-->
+        <div class="task-register-container">
+            <div class="modal-head">
+                <h2>Registrar Nueva Tareas</h2>
+                <button><i class="fas fa-close"></i></button>
             </div>
-            <label for="task-description">Descripcion</label>
-            <textarea id="task-description" name="task-description" required
-                placeholder="Descripcion de la tarea"></textarea>
-            <button type="submit">Añadir Tarea</button>
-        </form>
+            <form class="task-form">
+                <div class="form-group-task">
+                    <div class="item-task-1">
+                        <label for="task-title">Titulo</label>
+                        <input type="text" id="task-title" name="task-title" required placeholder="Titulo de la tarea">
+                    </div>
+                    <div>
+                        <label for="task-date">Fecha</label>
+                        <input type="date" id="task-date" name="task-date" required>
+                    </div>
+                    <div>
+                        <label for="task-time">Hora</label>
+                        <input type="time" name="task-time" id="task-time" required>
+                    </div>
+                </div>
+                <label for="task-description">Descripcion</label>
+                <textarea id="task-description" name="task-description" required
+                    placeholder="Descripcion de la tarea"></textarea>
+                <button type="submit">Añadir Tarea</button>
+            </form>
+        </div>
+        <!--Fin de registro de tareas-->
     </div>
-    <!--Fin de registro de tareas-->
+    <!--Fin modal-->
     <!--Inicio de listado de tareas-->
     <div class="task-list-container">
         <h2>Lista de Tareas</h2>
