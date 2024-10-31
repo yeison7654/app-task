@@ -10,21 +10,30 @@
 </head>
 
 <body>
+    <!--Elemento de carga o loader del app-->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+    </div>
     <!--Menu bar del app task-->
     <div class="menu-bar">
         <img src="../assets/img/logo.png" alt="Logo de la app task" class="menu-logo">
         <button class="menu-button">
             <i class="fas fa-user"></i>
         </button>
-        <button class="menu-button">
+        <button class="menu-button" id="btn-form-register">
             <i class="fas fa-plus"></i>
         </button>
         <button class="menu-button">
             <i class="fas fa-sign-out-alt"></i>
         </button>
     </div>
+    <!--Fin menu bar del app task-->
     <!--Inicio modal-->
-    <div class="modal">
+    <div class="modal hidden modal-save-task">
         <!--Inicio de registro de tareas-->
         <div class="task-register-container">
             <div class="modal-head">
@@ -53,6 +62,24 @@
                     placeholder="Descripcion de la tarea"></textarea>
                 <button type="submit">Añadir Tarea</button>
             </form>
+        </div>
+        <!--Fin de registro de tareas-->
+    </div>
+    <!--Fin modal-->
+    <!--Inicio modal salir de la app-->
+    <div class="modal hidden modal-exit-sesion">
+        <!--Inicio de mesanje de confirmacion-->
+        <div class="task-register-container">
+            <div class="modal-head">
+                <h2>¿Realmente quiere salir del sistema?</h2>
+                <button class="btn-close-modal">
+                    <i class="fas fa-close"></i>
+                </button>
+            </div>
+            <div class="modal-foot">
+                <button class="btn-cancel-modal btn-close-modal">Cancelar</button>
+                <button class="btn-exit-modal">Si</button>
+            </div>
         </div>
         <!--Fin de registro de tareas-->
     </div>
