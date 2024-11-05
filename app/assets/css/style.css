@@ -374,3 +374,65 @@ ul li:hover {
     padding: 0.8rem;
     cursor: pointer;
 }
+
+.alert-container {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 9999;
+}
+
+.custom-alert {
+    min-width: 15rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    color: #fff;
+    box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: custom-slide-in 0.5s ease-out forwards, custom-slide-out 0.5s ease-out forwards 3s;
+}
+
+.alert-success {
+    background-color: #2ecc71;
+}
+
+.alert-error {
+    background-color: #e74c3c;
+}
+
+.alert-info {
+    background-color: #3498db;
+}
+
+.alert-warning {
+    background-color: #f1c40f;
+}
+
+@keyframes custom-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes custom-slide-out {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+}
