@@ -258,7 +258,9 @@ h2 {
     padding: 0.8rem;
     cursor: pointer;
 }
-
+.btn-cancel-modal{
+    margin-top: 1.2rem;
+}
 .task-form button:hover {
     background-color: #357ab8;
 }
