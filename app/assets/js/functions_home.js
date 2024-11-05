@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
         closeModal();
         openModalSaveTask();
+        openModalLogout();
         loadingScreen.classList.add("hidden");
     }, 1000);
 
@@ -15,8 +16,10 @@ function closeModal() {
     let arrData = document.querySelectorAll('.btn-close-modal');
     arrData.forEach((element) => {
         element.addEventListener("click", () => {
-            let modal = document.querySelector('.modal');
-            modal.classList.add("hidden");
+            let modal = document.querySelectorAll('.modal');
+            modal.forEach(element => {
+                element.classList.add("hidden");
+            })
         });
     })
 }
@@ -29,4 +32,14 @@ function openModalSaveTask() {
         let modalSaveTask = document.querySelector('.modal-save-task');
         modalSaveTask.classList.remove("hidden");
     });
+}
+/*
+ *Funcion que abre el modal para cerrar sesion 
+ */
+function openModalLogout() {
+    let btnOpenModalLogout = document.getElementById('btn-exit-sesion');
+    btnOpenModalLogout.addEventListener("click", () => {
+        let modalExitSesion = document.querySelector('.modal-exit-sesion');
+        modalExitSesion.classList.remove("hidden");
+    })
 }

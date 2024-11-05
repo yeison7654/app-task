@@ -211,7 +211,7 @@ h2 {
 }
 
 /*Estilos para el registro de tareas*/
-.task-register-container {
+.modal-content {
     background: #ffffff;
     border-radius: 0.8rem;
     padding: 1.2rem;

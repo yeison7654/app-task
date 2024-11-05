@@ -1,0 +1,22 @@
+-- Crear base de datos
+CREATE DATABASE gestion_tareas;
+USE gestion_tareas;
+
+-- Crear tabla de usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_usuario VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Crear tabla de tareas
+CREATE TABLE tareas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    titulo VARCHAR(100) NOT NULL,
+    fecha DATE NOT NULL,
+    hora TIME NOT NULL,
+    descripcion TEXT,
+    estado ENUM('pendiente', 'hecha') DEFAULT 'pendiente',
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
