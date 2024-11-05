@@ -1,9 +1,15 @@
 let loadingScreen = document.querySelector('.loading-screen');
 document.addEventListener("DOMContentLoaded", function () {
+    //intervalo para actualizar la hora
+    setInterval(() => {
+        updateClock();
+    }, 1000);
+    //Mostrar el modal de registro de tareas
     setTimeout(() => {
         closeModal();
         openModalSaveTask();
         openModalLogout();
+        updateClock();
         loadingScreen.classList.add("hidden");
     }, 1000);
 
@@ -42,4 +48,40 @@ function openModalLogout() {
         let modalExitSesion = document.querySelector('.modal-exit-sesion');
         modalExitSesion.classList.remove("hidden");
     })
+}
+/*
+ *Funcion que actualiza el reloj 
+ */
+function updateClock() {
+    const now = new Date();
+    //elementos de la actualizacion de hora y fecha digital
+    const clockTime = document.getElementById("clock-time");
+    const clockDate = document.getElementById("clock-date");
+
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    clockTime.textContent = `${hours}:${minutes}:${seconds}`
+
+    const options = {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+    };
+    clockDate.textContent = now.toLocaleDateString("es-Es", options);
+
+    //elementos de la actualizacion de hora  analogica
+    const hourHand = document.querySelector(".hour-hand");
+    const minuteHand = document.querySelector(".minute-hand");
+    const secondHand = document.querySelector(".second-hand");
+
+    const hour = ((now.getHours() / 12) * 360) + ((now.getMinutes() / 60) * 30) + 90;
+    const minute = ((now.getMinutes() / 60) * 360) + ((now.getSeconds() / 60) * 6) + 90;
+    const second = ((now.getSeconds() / 60) * 360) + 90;
+    hourHand.style.transform = `rotate(${hour}deg)`;
+    minuteHand.style.transform = `rotate(${minute}deg)`;
+    secondHand.style.transform = `rotate(${second}deg)`;
+
 }
