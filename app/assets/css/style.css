@@ -258,9 +258,7 @@ h2 {
     padding: 0.8rem;
     cursor: pointer;
 }
-.btn-cancel-modal{
-    margin-top: 1.2rem;
-}
+
 .task-form button:hover {
     background-color: #357ab8;
 }
@@ -344,4 +342,35 @@ ul li:hover {
 .task-check input[type="checkbox"]:checked {
     background-color: #4a90e2;
     transform: scale(1.2);
+}
+
+/*Foot modal*/
+.modal-foot {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-cancel-modal {
+    margin-top: 1.2rem;
+    width: 100%;
+    background-color: #a4a7aa;
+    color: #fff;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+.btn-exit-modal {
+    margin-top: 1.2rem;
+    width: 100%;
+    background-color: #21bb61;
+    color: #fff;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 0.8rem;
+    cursor: pointer;
 }
