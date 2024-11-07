@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
         openModalSaveTask();
         openModalLogout();
         updateClock();
+        openModalProfile();
         loadingScreen.classList.add("hidden");
     }, 1000);
 
@@ -47,6 +48,16 @@ function openModalLogout() {
     btnOpenModalLogout.addEventListener("click", () => {
         let modalExitSesion = document.querySelector('.modal-exit-sesion');
         modalExitSesion.classList.remove("hidden");
+    })
+}
+/**
+ * Open modal Perfil
+ */
+function openModalProfile() {
+    let btnModalProfile = document.getElementById('btn-form-profile');
+    btnModalProfile.addEventListener("click", () => {
+        let modalPRofile = document.querySelector('.modal-profile-user');
+        modalPRofile.classList.remove("hidden");
     })
 }
 /*
