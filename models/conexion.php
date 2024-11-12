@@ -4,11 +4,11 @@ require_once('../config/config.php');
 class Conexion extends helpers
 {
     private $host = DB_HOST;
-    private $user;
-    private $pass;
-    private $db;
-    private $port;
-    private $charset;
+    private $user = DB_USER;
+    private $pass = DB_PASS;
+    private $db = DB_NAME;
+    private $port = DB_PORT;
+    private $charset = DB_CHARSET;
     private $conexion;
 
     protected function __construct()
@@ -28,5 +28,14 @@ class Conexion extends helpers
             );
             $this->toJson($data);
         }
+    }
+
+    protected function getConexion()
+    {
+        return $this->conexion;
+    }
+    protected function closeConexion()
+    {
+        $this->conexion = null;
     }
 }
