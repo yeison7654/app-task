@@ -12,7 +12,7 @@ const APP_URL = "http://localhost/app-task/";
 const DB_HOST = "localhost";
 const DB_USER = "root";
 const DB_PASS = "";
-const DB_NAME = "app_task";
+const DB_NAME = "gestion_tareas";
 const DB_PORT = "3306";
 const DB_CHARSET = "utf8";
 
