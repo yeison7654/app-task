@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+
+<body>
+    <!--Elemento de alertas-->
+    <div class="alert-container">
+    </div>
+    <!--Elemento de carga o loader del app-->
+    <div class="loading-screen" id="loading-screen">
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+        <div class="loading-bar"></div>
+    </div>
+    <!--Inicio Login-->
+    <div class="login-container">
+        <h2>Crear Usuario</h2>
+        <form class="login-form" id="formSave" autocomplete="off">
+            <label for="txtUserName">Usuario</label>
+            <input type="text" id="txtUserName" name="txtUserName" required placeholder="Ingresa tu usuario">
+            <label for="txtPassword1">Contraseña</label>
+            <input type="password" id="txtPassword1" name="txtPassword1" required placeholder="Ingresa tu contraseña">
+            <label for="txtPassword2">Confirme su contraseña</label>
+            <input type="password" id="txtPassword2" name="txtPassword2" required placeholder="Ingresa tu contraseña">
+            <button type="submit">Crear Usuario</button>
+        </form>
+        <div class="foot-new-user">
+            <p>¿Tienes una cuenta?</p>
+            <a href="./index.html">Ingresa aqui</a>
+        </div>
+    </div>
+    <!--Fin Login-->
+    <script src="../assets/js/function_users.js"></script>
+    
+</body>
+
+</html>

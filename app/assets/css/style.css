@@ -574,7 +574,20 @@ ul li:hover {
     margin-bottom: 1rem;
     font-style: oblique;
 }
-.user-info{
+
+.user-info {
     padding-top: 3rem;
     text-align: center;
+}
+
+.foot-new-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    gap: 1rem;
+}
+.foot-new-user a{
+    text-decoration: none;
+    color: #3498db;
 }
