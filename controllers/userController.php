@@ -31,4 +31,37 @@ class UserController extends User
             die();
         }
     }
+    public function loginUser(string $user, string $password)
+    {
+        if ($user == "" || $password == "") {
+            $data = array(
+                'status' => false,
+                'message' => "Los campos no pueden estar vacios",
+                'type' => 'error'
+            );
+            $this->toJson($data);
+            die();
+        }
+        $password = md5($password);
+        $request = $this->getUser($user, $password);
+        if (!$request) {
+            $data = array(
+                'status' => false,
+                'message' => "El usuario o contraseña son incorrectos",
+                'type' => 'error'
+            );
+            $this->toJson($data);
+            die();
+        }
+        session_start($this->nameSesion());
+        $_SESSION["user_info"] = $request;
+        $data = array(
+            'status' => true,
+            'message' => "Bienvenido",
+            'type' => 'success',
+            'url' => $this->url() . "app/views/app-task.html"
+        );
+        $this->toJson($data);
+        die();
+    }
 }

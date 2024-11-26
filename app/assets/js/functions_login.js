@@ -2,17 +2,17 @@ let loadingScreen = document.querySelector('.loading-screen');
 document.addEventListener("DOMContentLoaded", function () {
     //Mostrar el modal de registro de tareas
     setTimeout(() => {
-        saveUser();
+        login();
         loadingScreen.classList.add("hidden");
     }, 1000);
 });
 
-function saveUser() {
-    if (document.querySelector("#formSave")) {
-        const saveForm = document.querySelector("#formSave");
-        saveForm.addEventListener("submit", (e) => {
+function login() {
+    if (document.querySelector("#login-form")) {
+        const loginForm = document.querySelector("#login-form");
+        loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-            const formData = new FormData(saveForm);
+            const formData = new FormData(loginForm);
             const encabezados = new Headers();
             const config = {
                 method: "POST",
@@ -21,7 +21,7 @@ function saveUser() {
                 headers: encabezados,
                 body: formData
             }
-            const url = "http://localhost/app-task/Api/createUser.php";
+            const url = "http://localhost/app-task/Api/initSesion.php";
             fetch(url, config)
                 .then(response => {
                     if (!response.ok) {
@@ -34,8 +34,11 @@ function saveUser() {
                         viewAlert(data.type, data.message);
                         return false;
                     }
-                    saveForm.reset();
+                    loginForm.reset();
                     viewAlert(data.type, data.message);
+                    setTimeout(() => {
+                        window.location.href=data.url
+                    }, 2000);
                     return true;
                 })
                 .catch(error => {

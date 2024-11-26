@@ -25,4 +25,20 @@ class User extends Mysql
         $request = $this->insert($sql, $data);
         return $request;
     }
+    /*
+     *Modelo de inicio de sesion
+     */
+    protected function getUser(string $user, string $password)
+    {
+        $sql = "SELECT u.id,u.nombre_usuario FROM usuarios AS u 
+        WHERE u.nombre_usuario=? AND u.`password`=?";
+        $this->stringUser = $user;
+        $this->stringPassword = $password;
+        $data = array(
+            $this->stringUser,
+            $this->stringPassword
+        );
+        $request = $this->select($sql, $data);
+        return $request;
+    }
 }

@@ -1,7 +1,3 @@
-document.addEventListener("DOMContentLoaded", function () {
-    viewAlert('error', 'Tarea registrada correctamente');
-});
-
 function viewAlert(type, message) {
     const alertContainer = document.querySelector('.alert-container');
     const alert = document.createElement('div');
