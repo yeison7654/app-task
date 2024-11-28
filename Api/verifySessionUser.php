@@ -7,7 +7,8 @@ if (isset($_SESSION["user_info"])) {
     $data = array(
         'status' => true,
         'message' => "Estas conectado al sistema",
-        'type' => 'info'
+        'type' => 'info',
+        'infoUser' => $_SESSION["user_info"]
     );
     echo json_encode($data);
     die();
@@ -17,7 +18,7 @@ $data = array(
     'status' => false,
     'message' => "No estas conectado al sistema",
     'type' => 'error',
-    'url'=>$objHlprs->url()."app/views/index.html"
+    'url' => $objHlprs->url() . "app/views/index.html"
 );
 echo json_encode($data);
 die();

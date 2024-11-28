@@ -115,6 +115,8 @@ function verifySessionUser() {
                 viewAlert(data.type, data.message);
                 window.location.href = data.url
             }
+            let userName = document.querySelector(".user-name")
+            userName.innerHTML = data.infoUser.nombre_usuario
         })
         .catch((e) => {
             viewAlert("error", e.message);
