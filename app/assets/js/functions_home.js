@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //intervalo para actualizar la hora
     setInterval(() => {
         updateClock();
+        verifySessionUser();
     }, 1000);
     //Mostrar el modal de registro de tareas
     setTimeout(() => {
@@ -95,4 +96,27 @@ function updateClock() {
     minuteHand.style.transform = `rotate(${minute}deg)`;
     secondHand.style.transform = `rotate(${second}deg)`;
 
+}
+/*
+ *Funcion que verifica si el usuario a ingresado al sistema 
+ */
+function verifySessionUser() {
+    const url = "http://localhost/app-task/Api/verifySessionUser.php";
+    fetch(url)
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error("Ocurrio un error inesperado" + response.status);
+            }
+            return response.json();
+        })
+        .then((data) => {
+            if (data.status) {
+                viewAlert(data.type, data.message);
+            } else {
+                viewAlert(data.type, data.message);
+            }
+        })
+        .catch((e) => {
+            viewAlert("error", e.message);
+        })
 }

@@ -53,7 +53,9 @@ class UserController extends User
             $this->toJson($data);
             die();
         }
+        //creamos la sesion con un nombre
         session_start($this->nameSesion());
+        //variable de sesion, almacena la informacion del usuario que se incio sesion
         $_SESSION["user_info"] = $request;
         $data = array(
             'status' => true,
