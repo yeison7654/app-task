@@ -16,7 +16,8 @@ if (isset($_SESSION["user_info"])) {
 $data = array(
     'status' => false,
     'message' => "No estas conectado al sistema",
-    'type' => 'error'
+    'type' => 'error',
+    'url'=>$objHlprs->url()."app/views/index.html"
 );
 echo json_encode($data);
 die();

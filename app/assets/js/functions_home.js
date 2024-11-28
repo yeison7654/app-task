@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
         openModalLogout();
         updateClock();
         openModalProfile();
+        logOut();
         loadingScreen.classList.add("hidden");
     }, 1000);
 
@@ -110,13 +111,22 @@ function verifySessionUser() {
             return response.json();
         })
         .then((data) => {
-            if (data.status) {
+            if (!data.status) {
                 viewAlert(data.type, data.message);
-            } else {
-                viewAlert(data.type, data.message);
+                window.location.href = data.url
             }
         })
         .catch((e) => {
             viewAlert("error", e.message);
         })
+}
+
+/*
+ * Funcion que permite cerrar sesion
+ */
+function logOut() {
+    const btnExit = document.querySelector(".btn-exit-modal");
+    btnExit.addEventListener("click", () => {
+        window.location.href = "http://localhost/app-task/Api/logOut.php";
+    })
 }
