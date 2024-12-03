@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
         updateClock();
         openModalProfile();
         logOut();
+        sendData();
         loadingScreen.classList.add("hidden");
     }, 1000);
 
@@ -131,4 +132,44 @@ function logOut() {
     btnExit.addEventListener("click", () => {
         window.location.href = "http://localhost/app-task/Api/logOut.php";
     })
+}
+/**
+ * Funcion que registra las tareas
+ */
+function sendData() {
+    if (document.querySelector("#task-form")) {
+        const saveForm = document.querySelector("#task-form");
+        saveForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const formData = new FormData(saveForm);
+            const encabezados = new Headers();
+            const config = {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                headers: encabezados,
+                body: formData
+            }
+            const url = "http://localhost/app-task/Api/createTask.php";
+            fetch(url, config)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error en la solicitud " + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (!data.status) {
+                        viewAlert(data.type, data.message);
+                        return false;
+                    }
+                    saveForm.reset();
+                    viewAlert(data.type, data.message);
+                    return true;
+                })
+                .catch(error => {
+                    viewAlert("error", error.message);
+                })
+        })
+    }
 }
