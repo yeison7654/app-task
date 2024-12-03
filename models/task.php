@@ -30,4 +30,14 @@ class Task extends Mysql
         $response = $this->insert($sql, $data);
         return $response;
     }
+    /**
+     * funcion para obtener las tareas
+     */
+    protected function selectTasks($idUser)
+    {
+        $sql = "SELECT * FROM tareas WHERE usuario_id = ?";
+        $data = array($idUser);
+        $response = $this->selectALL($sql, $data);
+        return $response;
+    }
 }

@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         openModalProfile();
         logOut();
         sendData();
+        getTasks();
         loadingScreen.classList.add("hidden");
     }, 1000);
 
@@ -163,6 +164,7 @@ function sendData() {
                         viewAlert(data.type, data.message);
                         return false;
                     }
+                    getTasks();
                     saveForm.reset();
                     viewAlert(data.type, data.message);
                     return true;
@@ -172,4 +174,48 @@ function sendData() {
                 })
         })
     }
+}
+
+/**
+ * funcion que muestra las tareas
+ */
+function getTasks() {
+    const url = "http://localhost/app-task/Api/getTasks.php";
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error en la solicitud " + response.status);
+            }
+            return response.json();
+        })
+        .then(response => {
+            if (!response.status) {
+                viewAlert(response.type, response.message);
+                return false;
+            }
+            let listTasks = document.querySelector("#task-list");
+            let arrDataTask = response.data;
+            let itemTasks = "";
+            arrDataTask.forEach(item => {
+                itemTasks += `
+                  <li>
+                <div class="task-info">
+                    <span class="task-title">${item.titulo}</span>
+                    <span class="task-description">${item.descripcion}</span>
+                    <span class="task-date">${item.fecha}</span>
+                    <span class="task-time">${item.hora}</span>
+                </div>
+                <div class="task-check">
+                    <input type="checkbox" name="task-done" id="task-done">
+                    <label for="task-done">${item.estado}</label>
+                </div>
+            </li>
+                `;
+            });
+            listTasks.innerHTML = itemTasks;
+        })
+        .catch(error => {
+            viewAlert("error", error.message);
+        })
+
 }
