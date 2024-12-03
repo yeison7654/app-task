@@ -6,7 +6,7 @@ class TaskController extends Task
     {
         parent::__construct();
     }
-    public function createTask( $title, $description, $date, $hour){
+    public function setTask( $title, $description, $date, $hour){
         session_start($this->nameSesion());
         //llenado de variables
         $idUser= $_SESSION["user_info"]["id"];
