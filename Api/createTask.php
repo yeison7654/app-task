@@ -5,8 +5,8 @@ if (!$_POST) {
 }
 require_once '../controllers/taskController.php';
 $objTask = new TaskController();
-$title = $_POST['txtTitle'];
-$description = $_POST['txtDescription'];
-$date = $_POST['txtDate'];
-$hour = $_POST['txtHour'];
+$title = $_POST['task-title'];
+$description = $_POST['task-description'];
+$date = $_POST['task-date'];
+$hour = $_POST['task-time'];
 $objTask->setTask($title, $description, $date, $hour);
