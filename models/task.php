@@ -40,4 +40,19 @@ class Task extends Mysql
         $response = $this->selectALL($sql, $data);
         return $response;
     }
+    /**
+     * Funcion para actualizar el estado de la tarea
+     */
+    protected function updateStatus($id, $status)
+    {
+        $this->id = $id;
+        $this->status = $status;
+        $data = array(
+            $this->status,
+            $this->id
+        );
+        $sql = "UPDATE tareas SET estado = ? WHERE id = ?";
+        $response = $this->update($sql, $data);
+        return $response;
+    }
 }

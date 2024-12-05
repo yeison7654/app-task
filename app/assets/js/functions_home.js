@@ -1,5 +1,6 @@
 let loadingScreen = document.querySelector('.loading-screen');
 document.addEventListener("DOMContentLoaded", function () {
+    getTasks();
     //intervalo para actualizar la hora
     setInterval(() => {
         updateClock();
@@ -14,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
         openModalProfile();
         logOut();
         sendData();
-        getTasks();
+        changeStatusTask();
         loadingScreen.classList.add("hidden");
     }, 1000);
 
@@ -206,7 +207,7 @@ function getTasks() {
                     <span class="task-time">${item.hora}</span>
                 </div>
                 <div class="task-check">
-                    <input type="checkbox" name="task-done" id="task-done">
+                    <input type="checkbox" name="task-done" class="task-done" data-id="${item.id}" ${(item.estado == "hecha") ? "checked" : ""}>
                     <label for="task-done">${item.estado}</label>
                 </div>
             </li>
@@ -218,4 +219,62 @@ function getTasks() {
             viewAlert("error", error.message);
         })
 
+}
+
+
+function changeStatusTask() {
+    if (!document.querySelector(".task-done")) {
+        viewAlert("error", "No hay tareas registradas");
+        return false;
+    }
+    const taskDone = document.querySelectorAll(".task-done");
+    taskDone.forEach((element) => {
+        element.addEventListener('change', (e) => {
+            const idTask = element.getAttribute('data-id');
+            let estado;
+            if (element.checked) {
+                estado = "hecha";
+                msg = "Tarea hecha";
+                tipo = "success";
+            } else {
+                estado = "pendiente";
+                msg = "Tarea pendiente";
+                tipo = "error";
+            }
+            let data = new FormData();
+            data.append("id", idTask);
+            data.append("estado", estado);
+            let encabezados = new Headers();
+            let config = {
+                method: "POST",
+                mode: "cors",
+                cache: "no-cache",
+                headers: encabezados,
+                body: data
+            }
+            const url = "http://localhost/app-task/Api/updateStatusTask.php";
+            fetch(url, config)
+                .then((response) => {
+                    if (!response.ok) {
+                        throw new Error("Error en la solicitud " + response.status);
+                    }
+                    return response.json();
+                })
+                .then((result) => {
+                    if (!result.status) {
+                        viewAlert(result.type, result.message);
+                        return false;
+                    }
+                    getTasks();
+                    viewAlert(tipo, msg);
+                    setTimeout(() => {
+                        changeStatusTask();
+                    }, 500);
+                })
+                .catch((error) => {
+                    viewAlert("error", error.message);
+                })
+
+        });
+    });
 }

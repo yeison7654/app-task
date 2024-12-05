@@ -72,4 +72,39 @@ class TaskController extends Task
         );
         die();
     }
+    /**
+     * Funcion para actualizar el estado de la tarea
+     */
+    public function updateStatusTask($id, $status)
+    {
+        if ($id == "" || $status == "") {
+            echo $this->toJson(
+                [
+                    'status' => false,
+                    'message' => "Los campos no pueden estar vacios",
+                    'type' => 'error'
+                ]
+            );
+            die();
+        }
+        $request = $this->updateStatus($id, $status);
+        if ($request) {
+            echo $this->toJson(
+                [
+                    'status' => true,
+                    'message' => "Estado actualizado correctamente",
+                    'type' => 'success'
+                ]
+            );
+            die();
+
+        }
+        echo $this->toJson(
+            [
+                'status' => false,
+                'message' => "Ocurrio un error y no logro actualizar el estado de la tarea",
+                'type' => 'error'
+            ]
+        );
+    }
 }
